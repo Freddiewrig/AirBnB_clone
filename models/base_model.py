@@ -12,7 +12,7 @@ class BaseModel:
     
     def save(self):
         """Update the update_at with the curent time"""
-        self.updated_at = datetime.now
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         """returns dict.self"""
