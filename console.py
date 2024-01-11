@@ -36,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             new_instance = HBNBCommand.__classes[class_name]()
-            storage.save()
+            new_instance.save()
             print(new_instance.id)
 
     def do_show(self, arg):
@@ -80,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """Prints all string representation of all instances based or not on the class name"""
         args = arg.split()
-        if args and args[0] not in HBNBCommand:
+        if args and args[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         else:
             obj_list = []
