@@ -114,5 +114,24 @@ class HBNBCommand(cmd.Cmd):
             except NameError:
                 print("** value missing **")
                 return False
+        if len(args) == 4:
+            obj =objdict["{}.{}".format(args[0], args[1])]
+            if args[2] in obj.__class__.__dict__.keys():
+                valtype = type(__class__.__dict__[args[2]])
+                obj.__dict__[args[2]] = valtype(args[3])
+            else:
+                obj.__dict__[args[2]] = args[3]
+        elif type(eval(args[2])) == dict:
+            obj = objdict["{}.{}".format(args[0], args[1])]
+            for e, v in eval(args[2]).items():
+                if(e in obj.__class__.__dict__.keys() and
+                   type(obj.__class__.__dict__[e]) in
+                   {str, int, float}):
+                    valtype = type(obj.__class__.__dict__[e])
+                    obj.__dict__[e] = valtype(v)
+                else:
+                    obj.__dict__[e] = v
+        storage.save()
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
