@@ -14,11 +14,11 @@ class BaseModel:
             for key, Value in kwargs.items():
                 if key != '__class__':
                     setattr(self, key, Value)
-            else:
-                self.id = str(uuid4())
-                self.created_at = datetime.now()
-                self.updated_at = datetime.now()
-                models.storage.new(self)
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            models.storage.new(self)
                 
     def save(self):
         """Update the update_at with the curent time"""
