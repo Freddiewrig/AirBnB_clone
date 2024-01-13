@@ -1,8 +1,14 @@
 #!/usr/bin/python3
 """module for HBNBCommand(cmd.Cmd)"""
 import cmd
-import models
+from shlex import split
+from models.user import User
 from models import storage
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
 from models.base_model import BaseModel
 
 
@@ -12,7 +18,12 @@ class HBNBCommand(cmd.Cmd):
     prompt = 'hbnb '
     __classes = {
         'BaseModel',
-        'user'
+        'User',
+        'City',
+        'Amenity',
+        'Place',
+        'Review',
+        'State',
     }
 
     def do_quit(self, arg):
