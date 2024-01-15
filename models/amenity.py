@@ -8,5 +8,5 @@ class Amenity(BaseModel):
     attributes:
         name: string - empty string
     """
-    
+
     name = ""

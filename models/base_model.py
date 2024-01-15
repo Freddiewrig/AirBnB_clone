@@ -19,7 +19,7 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
         models.storage.new(self)
-                
+
     def save(self):
         """Update the update_at with the curent time"""
         models.storage.save()
@@ -36,4 +36,3 @@ class BaseModel:
         """prints [<class name>] (<self.id>) <self.__dict__>"""
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
                                      self.__dict__)
-    

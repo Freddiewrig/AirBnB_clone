@@ -10,6 +10,6 @@ class City(BaseModel):
             it will be the State.id
         name: string - empty string
     """
-    
+
     name = ""
     state_id = ""

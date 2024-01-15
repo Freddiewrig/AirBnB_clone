@@ -13,21 +13,22 @@ from models.state import State
 
 class HBNBCommand(cmd.Cmd):
     """prompt for comand interpretor"""
-    
+
     prompt = 'hbnb '
 
     def do_quit(self, arg):
         """to exit the program"""
         return True
-    
+
     def do_EOF(self, arg):
         """to exit the program"""
         print("")
         return True
-    
+
     def emptyline(self):
         """shouldn’t execute anything"""
         pass
+
     def do_create(self, arg):
         """Creates a new instance of BaseModel"""
         args = arg.split()
@@ -41,7 +42,9 @@ class HBNBCommand(cmd.Cmd):
             print(new_instance.id)
 
     def do_show(self, arg):
-        """ Prints the string representation of an instance based on the class name and id"""
+        """ Prints the string representation of an instance based on the class
+        name and id
+        """
         args = arg.split()
         if not args:
             print("** class name missing **")
@@ -74,7 +77,9 @@ class HBNBCommand(cmd.Cmd):
                 storage.save
 
     def do_all(self, arg):
-        """Prints all string representation of all instances based or not on the class name"""
+        """Prints all string representation of all instances based or not on
+        the class name
+        """
         args = arg.split()
         if args:
             if args[0] not in storage.classes:
@@ -110,5 +115,7 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     setattr(instance, attr_name, attr_val)
                     instance.save()
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
