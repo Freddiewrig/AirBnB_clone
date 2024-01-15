@@ -27,7 +27,9 @@ class BaseModel:
     def to_dict(self):
         """returns dict.self"""
         model_dict = self.__dict__.copy()
-        model_dict.pop("__class__", None)
+        model_dict["__class__"] = self.__class__.__name__
+        model_dict["created_at"] = self.created_at.isoformat()
+        model_dict["updated_at"] = self.updated_at.isoformat()
         return model_dict
 
     def __str__(self):
