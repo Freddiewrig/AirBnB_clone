@@ -9,20 +9,19 @@ class BaseModel:
     """Init basemodel"""
     def __init__(self, *args, **kwargs):
         if kwargs:
-            kwargs['created_at'] = datetime.strptime(kwargs['created_at'], "%Y-%m-%dT%H:%M:%S.%f")
-            kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f")
-            for key, Value in kwargs.items():
-                if key != '__class__':
-                    setattr(self, key, Value)
+            self.__dict__.update(kwargs)
+            if created_at in kwargs:
+                self.created_at = datetime.fromisoformat(kwargs["created_at"])
+            if updated_at in kwargs:
+                self.updated_at = datetime.fromisoformat(kwargs["updated_at"])
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new(self)
+        models.storage.new(self)
                 
     def save(self):
         """Update the update_at with the curent time"""
-        self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
