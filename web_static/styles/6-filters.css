@@ -27,11 +27,18 @@ section.filters button:hover{
     opacity: 0.9;
 }
 
-.location, .amenities{
+.locations{
+    text-align: left;
     height: 100%;
     width: 25%;
-    border-right: #DDDDDD 1px;
-    margin-left: 30px;
+    border-right: solid 1px #DDDDDD;
+    float: left;
+}
+.amenities{
+    text-align: left;
+    align-content: flex-start;
+    height: 100%;
+    width: 25%;
     float: left;
 }
 .amenities h3, .location h3{
@@ -39,6 +46,7 @@ section.filters button:hover{
     margin: 0;
     font-size: 14px;
     padding: 0;
+    padding-left: 30%;
 
 }
 .amenities h4, .location h4{
@@ -46,6 +54,7 @@ section.filters button:hover{
     font-size: 14px;
     margin: 0;
     padding: 0;
+    padding-left: 30%;
 }
 
 .popover{
@@ -55,7 +64,6 @@ section.filters button:hover{
     border: solid 1px #DDDDDD;
     position: relative;
     width: 100%;
-    box-sizing: border-box;
     z-index: 1;
 }
 .popover li h2{

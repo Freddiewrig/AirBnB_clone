@@ -10,7 +10,7 @@ header{
 header .logo{
     width: 142;
     height: 60;
-    background: url("../images/logo.png");
+    background: url("../images/logo.png") center;
     background-repeat: no-repeat;
     padding-left: 20px;
 
