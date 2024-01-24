@@ -10,9 +10,9 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         if kwargs:
             self.__dict__.update(kwargs)
-            if created_at in kwargs:
+            if 'created_at' in kwargs:
                 self.created_at = datetime.fromisoformat(kwargs["created_at"])
-            if updated_at in kwargs:
+            if 'updated_at' in kwargs:
                 self.updated_at = datetime.fromisoformat(kwargs["updated_at"])
         else:
             self.id = str(uuid4())
