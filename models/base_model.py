@@ -22,7 +22,6 @@ class BaseModel:
 
     def save(self):
         """Update the update_at with the curent time"""
-        self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
