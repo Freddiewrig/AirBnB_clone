@@ -26,6 +26,9 @@ class FileStorage:
     def all(self):
         """returns the dictionary __objects"""
         return self.__objects
+    
+    def filter_class(self, cls_name):
+        return {key: obj for key, obj in self.__objects.items() if type(obj).__name__ == cls_name}
 
     def new(self, obj):
         """sets in __objects the obj with key """
